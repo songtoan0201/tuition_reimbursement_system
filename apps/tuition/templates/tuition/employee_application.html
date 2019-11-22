@@ -81,7 +81,10 @@
                                         <span class="badge badge-warning text-wrap">Awaiting Additional Info</span> {% elif application.is_pending == False and application.is_approved == True %}
                                         <span class="badge badge-success text-wrap">Approved</span> {% elif application.is_pending == False and application.is_rejected == True %}
                                         <span class="badge badge-danger text-wrap">Rejected</span> {% endif%}
-                                        <td>{{application.total_cost}}</td>
+                                        <td>
+                                            {% if application.amount_awarded == None %} {{application.total_cost}} {% else %} {{application.amount_awarded}} {% endif %}
+                                        </td>
+
                                 </tr>
                                 {% endfor %}
                             </tbody>

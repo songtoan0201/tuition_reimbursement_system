@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 import datetime
 from apps.login.models import *
 import re
-from db_file_storage.model_utils import delete_file, delete_file_if_needed
-from db_file_storage.form_widgets import DBClearableFileInput
+# from db_file_storage.model_utils import delete_file, delete_file_if_needed
+# from db_file_storage.form_widgets import DBClearableFileInput
 from django.core.files.storage import FileSystemStorage
 
 class ApplicationManager(models.Manager):
