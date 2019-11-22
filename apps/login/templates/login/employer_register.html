@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Register Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="mb-3"></div>
+        <div class="py-5 text-center">
+            <h2>Employer Register Page</h2>
+            <div class="bottom-text">
+                Not an employer? <a href="/register_page">Sign up as an employee</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Register a New User</h4>
+                <form action="/employer_register" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="company_name">Company name</label>
+                            <input type="text" class="form-control" id="company_name" name="company_name" />
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                            {% if messages %}
+                            <ul class="messages"></ul>
+                            {% for message in messages %} {% if message.extra_tags == "company_name" %}
+                            <div class="text-danger">{{message}} </div>
+                            {% endif %} {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Company Email</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com" required/>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Your email is required.
+                            </div>
+                            {% if messages %}
+                            <ul class="messages"></ul>
+                            {% for message in messages %} {% if message.extra_tags == "email" %}
+                            <div class="text-danger">{{message}} </div>
+                            {% endif %} {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" required/>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Your password is required.
+                            </div>
+                            {% if messages %}
+                            <ul class="messages"></ul>
+                            {% for message in messages %} {% if message.extra_tags == "password" %}
+                            <div class="text-danger">{{message}} </div>
+                            {% endif %} {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm_PW">Confirm PW</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirm_PW" name="confirm_PW" />
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Confirm password is required.
+                            </div>
+                            {% if messages %}
+                            <ul class="messages"></ul>
+                            {% for message in messages %} {% if message.extra_tags == "confirm_PW" %}
+                            <div class="text-danger">{{message}} </div>
+                            {% endif %} {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" />
+                        <div class="invalid-feedback">
+                            Please enter your address.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label  >
+                        <input type="text" class="form-control"  id="address2"  placeholder="Apartment or suite"/>
+                    </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                        <select class="custom-select d-block w-100" id="country" name="country">
+                        <option value="">Choose...</option>
+                        <option>United States</option>
+                        <option>Canada</option>
+                    </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="state">State</label>
+                        <select class="custom-select d-block w-100" id="state" name="state">
+                            <option value="">Choose...</option>
+                            <option>California</option>
+                            <option>New York</option>
+                            <option>Nevada</option>
+                            <option>Texas</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control" id="zip" name="zip" placeholder="" />
+                        <div class="invalid-feedback">
+                            Zip code required.
+                        </div>
+                    </div>
+            </div>
+            <hr class="mb-4" />
+            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                 Sign Up
+            </button>
+        </div>
+
+    </div>
+    </form>
+    </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2019 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

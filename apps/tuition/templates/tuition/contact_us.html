@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tuition Organizer</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'tuition/css/style.css' %}">
+    <script src="{% static 'tuition/js/script.js' %}"></script>
+
+    <meta data-react-helmet="true" name="msapplication-TileImage" content="https://static.grammarly.com/assets/files/bcc70f711484f964e664fbade7a1a3e2/mstile-150x150.png" />
+    <meta data-react-helmet="true" name="msapplication-TileColor" content="#15C39A" />
+
+    <script type="text/javascript">
+        "use strict";
+
+        function handleFacadeExperimentInfo(e) {
+            if (e.redirect) {
+                try {
+                    sessionStorage.setItem("originalReferrer", document.referrer)
+                } catch (e) {}
+                document.location = e.redirect + document.location.search
+            } else {
+                window.Grammarly = e || {}, trackScriptExecuted(e), window.Grammarly.originalReferrer = sessionStorage.getItem("originalReferrer"), sessionStorage.removeItem("originalReferrer");
+                var r = window.Grammarly.requestId;
+                if (r && !/(&|\?)sid=[^&]+/gi.test(document.location.search) && /^\/business/gi.test(document.location.pathname)) {
+                    var t = (document.location.search ? document.location.search + "&" : "?") + "sid=" + r + document.location.hash;
+                    window.history.replaceState(null, "", t)
+                }
+            }
+        }
+
+        function trackScriptExecuted(e) {
+            new Image(1, 1).src = "/api/tracking/scriptExecuted?requestId=" + e.requestId + "&pageId=" + e.funnelRouteId
+        }
+    </script>
+    <script>
+        /**/
+        typeof handleFacadeExperimentInfo === 'function' && handleFacadeExperimentInfo({
+            "experiments": {
+                "chrome_installation_flow": "new_tab_1"
+            },
+            "user": {
+                "id": "-10872930179490048",
+                "type": "Free",
+                "name": "",
+                "email": "-10872930179490048@anonymous",
+                "loginType": "EMAIL",
+                "subscriptionFree": false,
+                "confirmed": false,
+                "disabled": false,
+                "free": true,
+                "anonymous": true,
+                "freemium": true,
+                "isTest": false,
+                "trusted": false,
+                "groups": ["freemium"],
+                "customFields": {
+                    "data-regulation": "false"
+                },
+                "settings": {},
+                "freemiumRegDate": "2019-11-22T17:02:17.145",
+                "editorFeatures": {
+                    "plagiarismDisabled": true,
+                    "scoreDisabled": false,
+                    "quickReplacement": true,
+                    "fullCards": true,
+                    "proofit": false
+                },
+                "plagiarismOn": false,
+                "institutionPlagiarismDisabled": true,
+                "institutionScoreDisabled": false,
+                "institutionQuickReplacement": true,
+                "institutionFullCards": true,
+                "institutionProofit": false,
+                "grammarlyEdu": false,
+                "institutionAdmin": false
+            },
+            "funnelRouteId": "contact",
+            "browserCapabilities": {
+                "browser": "Chrome",
+                "version": 78,
+                "deviceType": "Computer",
+                "os": "Windows 10",
+                "osGroup": "Windows"
+            },
+            "requestId": "t7W70Wh81cj58H4B3eAz",
+            "env": "prod",
+            "extra": {}
+        });
+    </script>
+    <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="https://static.grammarly.com/assets/files/02e38e7b8286916a6fa53b5b5f73d8f7/apple-touch-icon.png" />
+    <link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="https://static.grammarly.com/assets/files/2340c99e5888c621067307ab254ae533/favicon-16x16.png" />
+    <link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="https://static.grammarly.com/assets/files/efe57d016d9efff36da7884c193b646b/favicon-32x32.png" />
+    <link data-react-helmet="true" rel="shortcut icon" sizes="192x192" href="https://static.grammarly.com/assets/files/1ab7475b68ddc2fe6522a4baae84671c/android-chrome-192x192.png" />
+    <link data-react-helmet="true" rel="shortcut icon" sizes="256x256" href="https://static.grammarly.com/assets/files/8bcab69b48fd091107bf9cddb0080e87/android-chrome-256x256.png" />
+    <link data-react-helmet="true" rel="icon" type="image/x-icon" href="https://static.grammarly.com/assets/files/524adc79be04712e3a336059c2959e2e/favicon.ico" />
+    <link data-react-helmet="true" rel="mask-icon" href="https://static.grammarly.com/assets/files/fb9553bf35b484f8f4de429ee0f42285/safari-pinned-tab.svg" color="#15C39A" />
+    <link data-react-helmet="true" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen" />
+    <link data-react-helmet="true" rel="canonical" href="https://www.grammarly.com/contact" />
+    <link rel="stylesheet" href="https://static.grammarly.com/assets/styles/2f34b70a6fcc8e0cf5dd/main.css" />
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Tuition Organizer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/application">My application</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account">My Account</a>
+                    </li>
+                </ul>
+                <div id="menu" class="mt-2 mt-md-0">
+                    <a class="item mr-sm-2" href="/register_page">Sign Up</a>
+
+                    <a class="item mr-sm-2" href="/contact">Contact Us</a>
+
+                    <a class="item my-2 my-sm-0" href="/logout">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <div class="jumbotron text-center">
+            <div class="container">
+                <div class="mt-5"></div>
+                <div class="_3GXkR-_-_-_-_-_-client-pages-contact--contact-content">
+                    <div class="_2YBlX-_-_-_-_-_-client-components-contact-contact_card--contact_card-card _3IsMk-_-_-_-_-_-client-components-contact-contact_card--contact_card-leftCard">
+                        <div class="Miy5u-_-_-_-_-_-client-components-contact-contact_card--contact_card-textTitle _1-HDE-_-_-_-_-_-client-components-contact-contact_card--contact_card-leftTitle">Request A Demo</div>
+                        <div class="lecJU-_-_-_-_-_-client-components-contact-contact_card--contact_card-textSub _1JEmA-_-_-_-_-_-client-components-contact-contact_card--contact_card-leftSub">
+                            <div>Are you interested in our <br/>latest news or working on <br/>a Grammarly story and <br/>need to get in touch?</div>
+                        </div><a href="/submit_request" class="TqtVC-_-_-_-_-_-client-guidelines-button--button-basicButton _1BPvc-_-_-_-_-_-client-guidelines-button--button-schemeFlat S_6hi-_-_-_-_-_-client-guidelines-button--button-shapeRound _3CHRI-_-_-_-_-_-client-guidelines-button--button-sizeFlat _1u1GJ-_-_-_-_-_-client-components-contact-contact_card--contact_card-button _3_Hj3-_-_-_-_-_-client-components-contact-contact_card--contact_card-leftButton">Submit a Request</a></div>
+                    <div class="_2YBlX-_-_-_-_-_-client-components-contact-contact_card--contact_card-card _3X-81-_-_-_-_-_-client-components-contact-contact_card--contact_card-mainCard">
+                        <div class="Miy5u-_-_-_-_-_-client-components-contact-contact_card--contact_card-textTitle _1OGER-_-_-_-_-_-client-components-contact-contact_card--contact_card-mainTitle">Customer Support</div>
+                        <div class="lecJU-_-_-_-_-_-client-components-contact-contact_card--contact_card-textSub _3qUJV-_-_-_-_-_-client-components-contact-contact_card--contact_card-mainSub">
+                            <div>Our support team is <br/>spread across the globe to<br/>give you answers fast.</div>
+                        </div><a href="/submit_request" class="TqtVC-_-_-_-_-_-client-guidelines-button--button-basicButton -xnyk-_-_-_-_-_-client-guidelines-button--button-schemeGreen S_6hi-_-_-_-_-_-client-guidelines-button--button-shapeRound _3CHRI-_-_-_-_-_-client-guidelines-button--button-sizeFlat _1u1GJ-_-_-_-_-_-client-components-contact-contact_card--contact_card-button _22_mD-_-_-_-_-_-client-components-contact-contact_card--contact_card-mainButton">Customer Support</a>
+                        <div><a href="/submit_request" class="gXRn9-_-_-_-_-_-client-components-contact-contact_card--contact_card-request">SUBMIT A REQUEST</a></div>
+                    </div>
+                    <div class="_2YBlX-_-_-_-_-_-client-components-contact-contact_card--contact_card-card _4DNSY-_-_-_-_-_-client-components-contact-contact_card--contact_card-rightCard">
+                        <div class="Miy5u-_-_-_-_-_-client-components-contact-contact_card--contact_card-textTitle _6Fr4f-_-_-_-_-_-client-components-contact-contact_card--contact_card-rightTitle">Sales &amp; Inquiry</div>
+                        <div class="lecJU-_-_-_-_-_-client-components-contact-contact_card--contact_card-textSub _3MSWu-_-_-_-_-_-client-components-contact-contact_card--contact_card-rightSub">
+                            <div>Get in touch with our sales<br/>team to see how we can<br/>work together.</div>
+                        </div><a href="/submit_request" class="TqtVC-_-_-_-_-_-client-guidelines-button--button-basicButton _1BPvc-_-_-_-_-_-client-guidelines-button--button-schemeFlat S_6hi-_-_-_-_-_-client-guidelines-button--button-shapeRound _3CHRI-_-_-_-_-_-client-guidelines-button--button-sizeFlat _1u1GJ-_-_-_-_-_-client-components-contact-contact_card--contact_card-button CG8ZL-_-_-_-_-_-client-components-contact-contact_card--contact_card-rightButton">Sales Inquiry</a></div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2017-2019 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
