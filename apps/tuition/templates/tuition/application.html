@@ -101,11 +101,23 @@
                         <form action="/new_application" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-group">
+                                {% if messages %}
+                                <ul class="messages"></ul>
+                                {% for message in messages %} {% if message.extra_tags == "start_date" %}
+                                <div class="text-danger">{{message}} </div>
+                                {% endif %} {% endfor %}
+                                </ul>
+                                {% endif %}
                                 <label for="start_date">Date Range</label>
-                                <input type="date" class="ml-3" id="start_date" name="start_date" required>
-
+                                <input type="date" class="ml-3" id="start_date" name="start_date"> {% if messages %}
+                                <ul class="messages"></ul>
+                                {% for message in messages %} {% if message.extra_tags == "end_date" %}
+                                <div class="text-danger">{{message}} </div>
+                                {% endif %} {% endfor %}
+                                </ul>
+                                {% endif %}
                                 <label for="end_date">to</label>
-                                <input type="date" class="ml-3" id="end_date" name="end_date" required>
+                                <input type="date" class="ml-3" id="end_date" name="end_date">
                             </div>
                             <div class="form-group">
                                 <label for="institution">Shool/ Institution</label>
@@ -121,6 +133,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
+                                {% if messages %}
+                                <ul class="messages"></ul>
+                                {% for message in messages %} {% if message.extra_tags == "no_cost" %}
+                                <div class="text-danger">{{message}} </div>
+                                {% endif %} {% endfor %}
+                                </ul>
+                                {% endif %}
                                 <input type="number" class="form-control" id="cost" name="cost">
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>

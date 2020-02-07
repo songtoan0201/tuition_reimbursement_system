@@ -49,7 +49,7 @@
                             </div>
                             {% if messages %}
                             <ul class="messages"></ul>
-                            {% for message in messages %} {% if message.extra_tags == "email" %}
+                            {% for message in messages %} {% if message.extra_tags == "email" or message.extra_tags == "unique" %}
                             <div class="text-danger">{{message}} </div>
                             {% endif %} {% endfor %}
                             </ul>

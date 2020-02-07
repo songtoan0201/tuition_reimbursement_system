@@ -19,6 +19,8 @@ def index(request):
             "company_name": employer.company_name,
         }
         return render(request, "tuition/index2.html", context)
+    else:
+        return redirect("/login_page")
 
 def application(request):
     if "userid" in request.session:
@@ -129,9 +131,24 @@ def edit_employer_account(request):
 
 def new_application(request):
     if request.method == "POST":
-        cur_user = User.objects.get(id=request.session["userid"])
-        Application.objects.create(institution=request.POST["institution"], start_date=request.POST["start_date"], end_date=request.POST["end_date"], course_name=request.POST["course_name"], add_info=request.POST["add_info"], other_fees=request.POST["other_fees"], cost=request.POST["cost"], application_file=request.FILES["application_file"], user=cur_user)
-        return redirect("/application")
+        errors = Application.objects.basic_validator(request.POST)
+        # see if the email provided exists in the database
+        if len(errors) > 0:
+                # if the errors dictionary contains anything, loop through each key-value pair and make a flash message
+            for key, value in errors.items():
+                    # Adding errors into messages
+                messages.error(request, value, extra_tags=key)
+            # redirect the user back to the form to fix the errors
+            print(errors)
+            return redirect("/application")
+        else:
+            if len(request.FILES) != 0:
+                file=request.FILES["application_file"]
+            else:
+                file = None
+            cur_user = User.objects.get(id=request.session["userid"])
+            Application.objects.create(institution=request.POST["institution"], start_date=request.POST["start_date"], end_date=request.POST["end_date"], course_name=request.POST["course_name"], add_info=request.POST["add_info"], other_fees=request.POST["other_fees"], cost=request.POST["cost"], application_file=file, user=cur_user)
+            return redirect("/application")
     else:
         return redirect("/application")
 

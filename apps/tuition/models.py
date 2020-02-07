@@ -26,8 +26,7 @@ class ApplicationManager(models.Manager):
         if postData['end_date'] < postData['start_date']:
             errors["end_date"] = "End date should be after start date"
         return errors
-    
-# application_file = FileSystemStorage(location='/media')
+
 
 class Application(models.Model):
     institution = models.CharField(max_length=255)
@@ -39,7 +38,7 @@ class Application(models.Model):
     total_cost = models.IntegerField(blank=True, null=True)
     add_info = models.TextField(blank=True, null=True)
 
-    application_file = models.ImageField(upload_to='', blank=True, null=True)
+    application_file = models.ImageField(upload_to='', blank=True)
 
     is_pending = models.BooleanField(default=True)
     is_approved = models.BooleanField(default=False)

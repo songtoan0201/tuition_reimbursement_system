@@ -89,7 +89,10 @@
                                     </tr>
                                     <tr>
                                         <td>Current File:</td>
-                                        <td><a href="{{cur_app.application_file.url}}">{{cur_app.application_file}}</a></td>
+                                        <td>
+                                            {% if cur_app.application_file.url != None %}
+                                            <a href="{{cur_app.application_file.url}}">{{cur_app.application_file}}</a> {% endif %}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
