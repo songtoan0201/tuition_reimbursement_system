@@ -71,6 +71,6 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     employer = models.ForeignKey(
-        Employer, related_name="employees", on_delete=models.CASCADE)
+        Employer, related_name="employees",  on_delete=models.PROTECT)
 
     objects = UserManager()
