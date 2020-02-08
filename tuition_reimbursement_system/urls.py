@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include("apps.tuition.urls")),
     url(r'^', include("apps.login.urls")),
-    url(r'^files/', include('db_file_storage.urls')),
+    # url(r'^files/', include('db_file_storage.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
