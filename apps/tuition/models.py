@@ -7,6 +7,7 @@ import re
 # from db_file_storage.form_widgets import DBClearableFileInput
 from django.core.files.storage import FileSystemStorage
 
+
 class ApplicationManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
@@ -49,7 +50,8 @@ class Application(models.Model):
     feedback = models.TextField(blank=True, null=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name="applications")
+    user = models.ForeignKey(
+        User, related_name="applications", on_delete=models.PROTECT)
     objects = ApplicationManager()
 
     # def save(self, *args, **kwargs):
@@ -65,5 +67,3 @@ class ApplicationFile(models.Model):
     bytes = models.TextField()
     filename = models.CharField(max_length=255)
     mimetype = models.CharField(max_length=50)
-
-  
